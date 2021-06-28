@@ -16,9 +16,14 @@ if ($action == null) { // if action is null then set action = input get type
 }
 
 switch ($action) {
-    case 'home':
+    case 'home': // Home page
     {
         $userController->home(); // Return home page and create database if not exits
+        break;
+    }
+    case 'subjects': // List subjects
+    {
+        $subjectController->index(); // Get list subjects
         break;
     }
 }
