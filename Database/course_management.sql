@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS subjects
 (
     id          INT AUTO_INCREMENT,
     name        VARCHAR(50) NOT NULL,
-    credit_cart VARCHAR(25) NOT NULL,
+    credit_number VARCHAR(25) NOT NULL,
     PRIMARY KEY (id)
 );
 -- Create points table
@@ -89,4 +89,10 @@ INSERT INTO classrooms(name, major_id, user_id)
 VALUES ('lop A2', 1, 2),
        ('lop B3', 1, 3),
        ('lop B4', 2, 5);
+
+INSERT INTO subjects(name, credit_number)
+VALUES ('Toan', 3),
+       ('Networking', 1),
+       ('Security', 4);
+
 
