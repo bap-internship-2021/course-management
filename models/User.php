@@ -14,8 +14,8 @@ class User extends DatabaseConnect
     public string $phone;
 
     // Constant
-    const STUDENT_ROLE = 0; // student role
     const TEACHER_ROLE = 1; // teacher role
+    const STUDENT_ROLE = 2; // student role
     const FEMALE_GENDER = 0; // female gender
     const MALE_GENDER = 1; // male gender
 
