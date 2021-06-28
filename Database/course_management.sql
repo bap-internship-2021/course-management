@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS classrooms
 -- Create subjects table
 CREATE TABLE IF NOT EXISTS subjects
 (
-    id   INT AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
+    id          INT AUTO_INCREMENT,
+    name        VARCHAR(50) NOT NULL,
     credit_cart VARCHAR(25) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -65,3 +65,28 @@ CREATE TABLE IF NOT EXISTS points
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (subject_id) REFERENCES subjects (id)
 );
+
+# Insert record
+INSERT INTO users (role_id, name, gender, phone)
+VALUES (1, 'Trang', 0, '242342422'),
+       (1, 'Tuan', 1, '08333333'),
+       (1, 'Phong', 1, '035666666'),
+       (1, 'Loan', 0, '043534554'),
+       (0, 'Phuong', 0, '0324324234'),
+       (0, 'PHUOC TRAN', 1, '3423423'),
+       (0, 'Quang', 1, '234234444'),
+       (0, 'Minh', 1, '756456456'),
+       (0, 'Hieu', 1, '255552222'),
+       (0, 'Trinh', 0, '234234234');
+
+INSERT INTO majors (name, user_id)
+VALUES ('CNTT', 1),
+       ('Du lịch', 2),
+       ('Marketing', 3),
+       ('Business', 4);
+
+INSERT INTO classrooms(name, major_id, user_id)
+VALUES ('lop A2', 1, 2),
+       ('lop B3', 1, 3),
+       ('lop B4', 2, 5);
+

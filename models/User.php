@@ -5,15 +5,19 @@ require_once 'connection.php';
 class User extends DatabaseConnect
 {
     // Những field của model tương tác với database (The fields of model that contract with database)
-const STUDENT_ROLE = 0;
-const TEACHER_ROLE = 1;
+
+
     public int $id;
     public int $role_id;
     public string $name;
+    public string $gender;
+    public string $phone;
 
     // Constant
-        public string $gender; // Student role
-        public string $phone; // Teacher role
+    const STUDENT_ROLE = 0; // student role
+    const TEACHER_ROLE = 1; // teacher role
+    const FEMALE_GENDER = 0; // female gender
+    const MALE_GENDER = 1; // male gender
 
     public function checkDatabase()
     {
