@@ -72,6 +72,7 @@ USE course_management;
 INSERT INTO roles (name)
 VALUES ('Teacher'), -- id = 1
        ('Student'); -- id = 2
+
 INSERT INTO users (role_id, name, gender, phone)
 VALUES (1, 'Trang', 0, '242342422'),
        (1, 'Tuan', 1, '08333333'),
@@ -96,9 +97,9 @@ VALUES ('lop A2', 1, 2),
        ('lop B4', 2, 5);
 
 INSERT INTO subjects(name, credit_number)
-VALUES ('Programing', 3),
-       ('Networking', 1),
-       ('Security', 4),
+VALUES ('Programing', 1),
+       ('Networking', 2),
+       ('Security', 3),
        ('Project management');
 
 INSERT INTO points(subject_id, user_id, point, time)
@@ -107,5 +108,3 @@ VALUES (1, 5, 10, 1),
        (3, 7, 9, 1),
        (3, 8, 9, 1),
        (4, 9, 10, 1);
-
-
