@@ -45,13 +45,23 @@ CREATE TABLE IF NOT EXISTS classrooms
     FOREIGN KEY (major_id) REFERENCES majors (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
-
+-- Create subjects table
+CREATE TABLE IF NOT EXISTS subjects
+(
+    id   INT AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    credit_cart VARCHAR(25) NOT NULL,
+    PRIMARY KEY (id)
+);
 -- Create points table
 CREATE TABLE IF NOT EXISTS points
 (
     id         INT AUTO_INCREMENT,
+    user_id    INT NOT NULL,
     subject_id INT NOT NULL,
     point      DOUBLE, # Diem thi
     time       INT,    # So lan thi
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (subject_id) REFERENCES subjects (id)
 );
