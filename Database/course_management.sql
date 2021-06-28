@@ -100,7 +100,7 @@ INSERT INTO subjects(name, credit_number)
 VALUES ('Programing', 1),
        ('Networking', 2),
        ('Security', 3),
-       ('Project management');
+       ('Project management',5);
 
 INSERT INTO points(subject_id, user_id, point, time)
 VALUES (1, 5, 10, 1),
