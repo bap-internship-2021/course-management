@@ -1,12 +1,8 @@
 <?php
-
 require_once 'connection.php';
 
-class User extends DatabaseConnect
+class Student extends DatabaseConnect
 {
-    // Những field của model tương tác với database (The fields of model that contract with database)
-
-
     public int $id;
     public int $role_id;
     public string $name;
@@ -19,27 +15,16 @@ class User extends DatabaseConnect
     const FEMALE_GENDER = 0; // female gender
     const MALE_GENDER = 1; // male gender
 
-    public function checkDatabase()
+    public function listStudents()
     {
         try {
-            return parent::__construct(); // Call Database Connection constructor
-        } catch (PDOException $exception) {
-            die($exception->getMessage());
-        }
-    }
-
-    /**
-     * Get all user in resources
-     */
-    public function index()
-    {
-        try {
-            $query = 'SELECT * FROM users';
+            $query = 'SELECT * FROM users WHERE role_id  = :role_id';
             $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':role_id', self::STUDENT_ROLE);
             $stmt->execute();
             $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-
+          
             return $subjects; // return to controller
         } catch (PDOException $exception) {
             die($exception->getMessage());
