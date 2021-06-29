@@ -26,5 +26,15 @@ switch ($action) {
         $subjectController->index(); // Get list subjects
         break;
     }
+    case 'edit_subject': // Edit view subject
+    {
+        $subjectController->edit();
+        break;
+    }
+    case 'update_subject': // Update subject
+    {
+        $subjectController->updateSubject();
+        break;
+    }
 }
 

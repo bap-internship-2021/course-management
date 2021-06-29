@@ -21,8 +21,8 @@
                     <th scope="row"><?php echo $key ?></th>
                     <td><?php echo $subject['name'] ?></td>
                     <td><?php echo $subject['credit_number'] ?></td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td><a href=".?action=edit_subject&id=<?php echo $subject['id']; ?>">Edit</a></td>
+                    <td>Detail</td>
                 </tr>
             <?php } ?>
         <?php } ?>
