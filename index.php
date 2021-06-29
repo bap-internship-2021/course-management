@@ -47,6 +47,10 @@ switch ($action) {
             $studentController->listStudents();    
             break;
         }
+    case 'edit_student':
+        {
+            $studentController->
+        }
     
 }
 
