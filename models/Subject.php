@@ -49,6 +49,26 @@ class Subject extends DatabaseConnect
         }
     }
 
+    /**
+     * Store new subject to subjects table
+     *
+     */
+    public function store($name, $credit_number)
+    {
+        try {
+            $query = 'INSERT INTO subjects(name, credit_number) VALUES (:name, :credit_number)';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':name', $name);
+            $stmt->bindValue(':credit_number', $credit_number, PDO::PARAM_INT); // id param must be int
+            $result = $stmt->execute();
+            $stmt->closeCursor();
+
+            return $result; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
     public function update($id, $name, $credit_number)
     {
         try {
@@ -56,6 +76,21 @@ class Subject extends DatabaseConnect
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':name', $name);
             $stmt->bindValue(':credit_number', $credit_number, PDO::PARAM_INT); // id param must be int
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
+            $result = $stmt->execute();
+            $stmt->closeCursor();
+
+            return $result;
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $query = 'DELETE FROM subjects WHERE id = :id';
+            $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
             $result = $stmt->execute();
             $stmt->closeCursor();
