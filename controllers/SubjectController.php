@@ -36,9 +36,9 @@ class SubjectController extends Subject
 
         $result = parent::update($id, $name, $credit_number);
         if ($result) {
+            $_SESSION['edit_subject']['success'] = 'Update subject success';
             header("Location: .?action=edit_subject&id=$id");
         }
-
     }
 
 }

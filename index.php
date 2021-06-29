@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require_once 'controllers/UserController.php'; //Call the User controller
 require_once 'controllers/SubjectController.php'; //Call the Subject controller
 
