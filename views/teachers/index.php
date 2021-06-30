@@ -98,32 +98,34 @@
     <!--  ENd form create subject-->
     <!--  Alert if update success  -->
 
-    <h1 class="text-blue text-center">List Teachers</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Phone</th>
-            <th scope="col" colspan="2">Action</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="table-responsive">
+        <h1 class="text-blue text-center">List Teachers</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Phone</th>
+                <th scope="col" colspan="2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
 
-        <?php if (!empty($teachers)) { ?>
-            <?php foreach ($teachers as $key => $tc) { ?>
-                <tr>
-                    <th scope="row"><?php echo $key ?></th>
-                    <td><?php echo $tc['name'] ?></td>
-                    <td><?php echo (($tc['gender'] == 0) ? 'Nữ' : 'Nam'); ?></td>
-                    <td><?php echo $tc['phone'] ?></td>
-                    <td><a href=".?action=edit_teacher&id=<?php echo $tc['id']; ?>" class="btn btn-primary">Edit</a></td>
-                </tr>
+            <?php if (!empty($teachers)) { ?>
+                <?php foreach ($teachers as $key => $tc) { ?>
+                    <tr>
+                        <th scope="row"><?php echo $key ?></th>
+                        <td><?php echo $tc['name'] ?></td>
+                        <td><?php echo (($tc['gender'] == 0) ? 'Nữ' : 'Nam'); ?></td>
+                        <td><?php echo $tc['phone'] ?></td>
+                        <td><a href=".?action=edit_teacher&id=<?php echo $tc['id']; ?>" class="btn btn-primary">Edit</a></td>
+                    </tr>
+                <?php } ?>
             <?php } ?>
-        <?php } ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
 <!-- Footer -->
 <?php require_once 'views/footer_app.php'; ?>
