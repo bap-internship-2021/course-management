@@ -31,7 +31,7 @@ class Student extends DatabaseConnect
         }
     }
 
-    public function store($name, $gender, $phone, $role_id)
+    public function store($name, $gender, $phone)
     {
         // var_dump($role_id);die();
         try {
@@ -40,7 +40,7 @@ class Student extends DatabaseConnect
             $stmt->bindValue(':name', $name);
             $stmt->bindValue(':gender', $gender); 
             $stmt->bindValue(':phone', $phone); 
-            $stmt->bindValue(':role_id', Student::STUDENT_ROLE); 
+            $stmt->bindValue(':role_id', self::STUDENT_ROLE); 
             $result = $stmt->execute();
             $stmt->closeCursor();
             return $result; // return to controller

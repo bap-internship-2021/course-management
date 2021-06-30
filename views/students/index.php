@@ -29,7 +29,7 @@
                         <label for="gender" class="col-sm-12">Gender</label>
                         <div class="col-sm-12">
                             <select name="gender" class="form-control form-control-line">
-                                <option value="0">Nữ</option>
+                                <option value="2">Nữ</option>
                                 <option value="1">Nam</option>
                             </select>
                         </div>

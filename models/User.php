@@ -16,7 +16,7 @@ class User extends DatabaseConnect
     // Constant
     const TEACHER_ROLE = 1; // teacher role
     const STUDENT_ROLE = 2; // student role
-    const FEMALE_GENDER = 0; // female gender
+    const FEMALE_GENDER = 2; // female gender
     const MALE_GENDER = 1; // male gender
 
     public function checkDatabase()

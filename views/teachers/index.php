@@ -33,7 +33,7 @@
                                 <option value="1">Nam</option>
                             </select>
                         </div>
-                    </div>
+                        </div>
 
                         <!-- phone -->
                         <div class="mb-3">
@@ -98,7 +98,7 @@
     <!--  ENd form create subject-->
     <!--  Alert if update success  -->
 
-    <h1 class="text-blue text-center">List students</h1>
+    <h1 class="text-blue text-center">List Teachers</h1>
     <table class="table">
         <thead>
         <tr>

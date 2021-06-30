@@ -94,7 +94,11 @@ switch ($action) {
         $teacherController->listTeachers();
         break;
     }
-    
+    case 'create_teacher':
+    {
+        $teacherController->storeTeacher();
+        break;
+    }
 
 }
 
