@@ -80,8 +80,7 @@ switch ($action) {
     }
     default: // If not found
     {
-        include_once 'views/errors/404.php';
-        die();
+        $userController->status404();
     }
 }
 

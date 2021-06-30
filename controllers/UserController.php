@@ -14,4 +14,9 @@ class UserController extends User
             die($exception->getMessage());
         }
     }
+    public function status404()
+    {
+        include_once 'views/errors/404.php';
+        die();
+    }
 }
