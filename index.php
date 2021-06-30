@@ -60,7 +60,7 @@ switch ($action) {
     // editStudent
     case 'edit_student':
         {
-            $studentController->editStudent();
+            // $studentController->editStudent();
         }
     
 
