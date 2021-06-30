@@ -3,7 +3,7 @@
 //         print_r($subject);die();
 //?>
     <!-- Header -->
-<?php require_once 'views/layouts/header.php'; ?>
+    <?php require_once 'views/header_app.php'; ?>
 
     <!-- Content -->
     <div class="container-fluid">
@@ -76,4 +76,4 @@
     </div>
 
     <!-- Footer -->
-<?php require_once 'views/layouts/footer.php'; ?>
+    <?php require_once 'views/footer_app.php'; ?>
