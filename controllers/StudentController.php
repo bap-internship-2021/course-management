@@ -13,5 +13,7 @@ class StudentController extends Student
         include_once 'views/students/index.php';
 
     }
+
+    
 }
 ?>

@@ -26,10 +26,20 @@ switch ($action) {
             break;
         }
     case 'subjects': // List subjects
-        {
-            $subjectController->index(); // Get list subjects
-            break;
-        }
+    {
+        $subjectController->index(); // Get list subjects
+        break;
+    }
+    case 'create_subject':
+    {
+        $subjectController->storeSubject();
+        break;
+    }
+    case 'detail_subject':
+    {
+        $subjectController->detailSubject();
+        break;
+    }
     case 'edit_subject': // Edit view subject
         {
             $subjectController->edit();
@@ -47,10 +57,13 @@ switch ($action) {
             $studentController->listStudents();    
             break;
         }
+    // editStudent
     case 'edit_student':
         {
-            $studentController->
+            $studentController->editStudent();
         }
+    
+
     
 }
 
