@@ -8,10 +8,10 @@ class EditStudentRequest
         $pattern = '/[^a-zA-Z_\x{00C0}-\x{00FF}\x{1EA0}-\x{1EFF}]/u';
         $isOk = true; //flag
         if (empty($data['name'])) {
-            $_SESSION['edit_student']['name_error'] = 'Name must not be empty';
+            $_SESSION['create_student']['name_error'] = 'Name must not be empty';
             $isOk = false;
         } elseif (!preg_match($pattern, $data['name'])) {
-            $_SESSION['edit_student']['name_error'] = 'Name must be a string and not contain number((from 6 to 30 character))';
+            $_SESSION['create_student']['name_error'] = 'Names must be a string and not contain number((from 6 to 30 character))';
             $isOk = false;
         }
 

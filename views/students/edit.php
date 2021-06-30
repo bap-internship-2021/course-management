@@ -76,7 +76,7 @@
                         <label for="gender" class="col-sm-12">Gender</label>
                         <div class="col-sm-12">
                             <select name="gender" class="form-control form-control-line">
-                                <option value="0" <?php echo ($students['gender'] == 0) ? 'selected' : ''; ?> >Nữ</option>
+                                <option value="2" <?php echo ($students['gender'] == 2) ? 'selected' : ''; ?> >Nữ</option>
                                 <option value="1" <?php echo ($students['gender'] == 1) ? 'selected' : ''; ?> >Nam</option>
                             </select>
                         </div>
