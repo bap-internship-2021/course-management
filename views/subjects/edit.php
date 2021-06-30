@@ -3,11 +3,34 @@
 //         print_r($subject);die();
 //?>
     <!-- Header -->
-<?php require_once 'views/layouts/header.php'; ?>
+    <?php require_once 'views/header_app.php'; ?>
 
     <!-- Content -->
     <div class="container-fluid">
         <h1 class="text-blue text-center">Edit subject</h1>
+        <!--  Name error  -->
+        <?php if (isset($_SESSION['edit_subject']['name_error'])) { ?>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <?php echo $_SESSION['edit_subject']['name_error']; ?>
+                    </div>
+                </div>
+            </div>
+        <?php }
+        unset($_SESSION['edit_subject']['name_error']); ?>
+
+        <!-- credit number error -->
+        <?php if (isset($_SESSION['edit_subject']['credit_number_error'])) { ?>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <?php echo $_SESSION['edit_subject']['credit_number_error']; ?>
+                    </div>
+                </div>
+            </div>
+        <?php }
+        unset($_SESSION['edit_subject']['credit_number_error']); ?>
         <!--  Alert if update success  -->
         <?php if (isset($_SESSION['edit_subject']['success'])) { ?>
             <div class="row justify-content-center">
@@ -53,4 +76,4 @@
     </div>
 
     <!-- Footer -->
-<?php require_once 'views/layouts/footer.php'; ?>
+    <?php require_once 'views/footer_app.php'; ?>

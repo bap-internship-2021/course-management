@@ -2,6 +2,8 @@
 
 
 require_once 'models/Subject.php'; // Call the Subject model
+require_once 'validators/subjects/EditSubjectRequest.php';
+require_once 'validators/subjects/CreateSubjectRequest.php';
 
 class SubjectController extends Subject
 {
@@ -22,9 +24,14 @@ class SubjectController extends Subject
     {
         $name = filter_input(INPUT_POST, 'name');
         $credit_number = filter_input(INPUT_POST, 'credit_number', FILTER_VALIDATE_INT);
-        if (parent::store($name, $credit_number)) {
-            $_SESSION['create_subject']['success'] = 'Create subject success';
-            header("Location: .?action=subjects"); // return view list subject
+        $isValidData = CreateSubjectRequest::validateCreateInfoSubject(['name' => $name, 'credit_number' => $credit_number]);
+        if ($isValidData == true) {
+            if (parent::store($name, $credit_number)) {
+                $_SESSION['create_subject']['success'] = 'Create subject success';
+                header("Location: .?action=subjects"); // return view list subject
+            }
+        } else {
+            header("Location: .?action=subjects"); // return view list subject with error
         }
     }
 
@@ -50,13 +57,18 @@ class SubjectController extends Subject
         $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
         $name = filter_input(INPUT_POST, 'name');
         $credit_number = filter_input(INPUT_POST, 'credit_number', FILTER_VALIDATE_INT);
+        $isValidData = EditSubjectRequest::validateEditInfoSubject(['name' => $name, 'credit_number' => $credit_number]);
 
-        $result = parent::update($id, $name, $credit_number);
-        if ($result) {
-            $_SESSION['edit_subject']['success'] = 'Update subject success';
-            header("Location: .?action=edit_subject&id=$id");
+        if ($isValidData == true) { // if pass validate
+            $result = parent::update($id, $name, $credit_number); // update subject
+            if ($result == true) { // if update success
+                $_SESSION['edit_subject']['success'] = 'Update subject success';
+                header("Location: .?action=edit_subject&id=$id"); // return back with success
+            } else {
+                die('some thing error please try again');
+            }
         } else {
-            die('Error update');
+            header("Location: .?action=edit_subject&id=$id"); // return back with error
         }
     }
 
@@ -66,7 +78,7 @@ class SubjectController extends Subject
         $result = parent::destroy($id);
         if ($result) {
             $_SESSION['delete_subject']['success'] = 'Delete subject success';
-            header('Location .?action=subjects');
+            header('Location: .?action=subjects');
         } else {
             die('Error delete!');
         }
