@@ -79,8 +79,10 @@ switch ($action) {
         $studentController->storeStudent();
         break;
     }
-
-    // teacher
+    default: // If not found
+    {
+        $userController->status404();
+    }
     
 }
 
