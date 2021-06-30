@@ -40,13 +40,8 @@
                         <label for="gender" class="col-sm-12">Gender</label>
                         <div class="col-sm-12">
                             <select name="gender" class="form-control form-control-line">
-                                <?php if($students['gender'] == 0){ ?>
-                                    <option selected value="0">Nữ</option>
-                                    <option value="1">Nam</option>
-                                <?php }else{ ?>
-                                    <option value="0">Nữ</option>
-                                    <option selected value="1">Nam</option>
-                                <?php } ?>
+                                <option value="0" <?php echo ($students['gender'] == 0) ? 'selected' : ''; ?> >Nữ</option>
+                                <option value="1" <?php echo ($students['gender'] == 1) ? 'selected' : ''; ?> >Nam</option>
                             </select>
                         </div>
                     </div>
@@ -69,3 +64,5 @@
 
     <!-- Footer -->
 <?php require_once 'views/layouts/footer.php'; ?>
+
+

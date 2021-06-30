@@ -83,10 +83,9 @@
                 <tr>
                     <th scope="row"><?php echo $key ?></th>
                     <td><?php echo $st['name'] ?></td>
-                    <td><?php echo $st['gender'] ?></td>
+                    <td><?php echo (($st['gender'] == 0) ? 'Nữ' : 'Nam'); ?></td>
                     <td><?php echo $st['phone'] ?></td>
                     <td><a href=".?action=edit_student&id=<?php echo $st['id']; ?>" class="btn btn-primary">Edit</a></td>
-                    <td>Detail</td>
                 </tr>
             <?php } ?>
         <?php } ?>
