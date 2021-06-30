@@ -52,6 +52,7 @@ switch ($action) {
         }
 
         // student
+
     case 'students': 
         {
             $studentController->listStudents();    
@@ -61,8 +62,13 @@ switch ($action) {
     case 'edit_student':
         {
             $studentController->editStudent();
+            break;
         }
-    
+    case 'update_student':
+        {
+            $studentController->updateStudent();
+            break;
+        }
 
     
 }

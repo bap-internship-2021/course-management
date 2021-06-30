@@ -46,4 +46,22 @@ class Student extends DatabaseConnect
             die($exception->getMessage());
         }
     }
+
+    public function update($id, $name, $gender, $phone)
+    {
+        try {
+            $query = 'UPDATE users SET name = :name, gender = :gender, phone = :phone WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':name', $name);
+            $stmt->bindValue(':gender', $gender); 
+            $stmt->bindValue(':phone', $phone); 
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
+            $result = $stmt->execute();
+            $stmt->closeCursor();
+
+            return $result;
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
 }

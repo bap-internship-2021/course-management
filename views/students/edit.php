@@ -52,10 +52,10 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="credit-number" class="form-label">Credit number</label>
-                        <input type="text" name="credit_number" class="form-control" id="credit-number"
-                               placeholder="Credit number"
-                               value="<?php echo (!empty($subject['credit_number'])) ? $subject['credit_number'] : '' ?>">
+                        <label for="credit-number" class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control" id="phone"
+                               placeholder="Phone"
+                               value="<?php echo (!empty($students['phone'])) ? $students['phone'] : '' ?>">
                     </div>
 
                     <!-- Button submit -->

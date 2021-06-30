@@ -23,5 +23,22 @@ class StudentController extends Student
 //         var_dump($students);die();
         include_once 'views/students/edit.php';
     }
+
+    public function updateStudent()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $name = filter_input(INPUT_POST, 'name');
+        $gender = filter_input(INPUT_POST, 'gender');
+        $phone = filter_input(INPUT_POST, 'phone');
+
+        $result = parent::update($id, $name, $gender, $phone);
+        if ($result) {
+            $_SESSION['edit_student']['success'] = 'Update student success';
+            header("Location: .?action=edit_student&id=$id");
+        } else {
+            die('Error update');
+        }
+    }
+
 }
 ?>
