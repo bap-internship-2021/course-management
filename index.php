@@ -83,10 +83,7 @@ switch ($action) {
     }
 
     // 404
-    default: // If not found
-    {
-        $userController->status404();
-    }
+    
 
     // teacher
     case 'teachers':
@@ -99,6 +96,15 @@ switch ($action) {
         $teacherController->storeTeacher();
         break;
     }
-
+    case 'edit_teacher':
+    {
+        $teacherController->editTeacher();
+        break;
+    }
+    case 'update_teacher':
+    {
+        $teacherController->updateTeacher();
+        break;
+    }
 }
 

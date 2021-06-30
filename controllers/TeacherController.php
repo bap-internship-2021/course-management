@@ -2,7 +2,7 @@
 
 require_once 'models/Teacher.php'; // Call the Teacher model
 require_once 'validators/teachers/CreateTeacherRequest.php';
-// require_once 'validators/students/EditStudentRequest.php';
+require_once 'validators/teachers/EditTeacherRequest.php';
 
 class TeacherController extends Teacher
 {
@@ -33,6 +33,37 @@ class TeacherController extends Teacher
             header("Location: .?action=teachers"); // return view list subject with error
         }
         
+    }
+
+    public function editTeacher()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        // Get current subject with id from subject model
+        $teacher = parent::show($id);
+//         echo '<pre>';
+//         var_dump($teachers);die();
+        include_once 'views/teachers/edit.php';
+    }
+
+    public function updateTeacher()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $name = filter_input(INPUT_POST, 'name');
+        $gender = filter_input(INPUT_POST, 'gender');
+        $phone = filter_input(INPUT_POST, 'phone');
+        $isValidData = EditTeacherRequest::validateEditInfoTeacher(['name' => $name, 'gender' => $gender, 'phone' => $phone]);
+        if ($isValidData == true) { // if pass validate
+            $result = parent::update($id, $name, $gender, $phone);
+
+            if ($result) {
+                $_SESSION['edit_teacher']['success'] = 'Update teacher success';
+                header("Location: .?action=edit_teacher&id=$id");
+            } else {
+                die('Error update');
+            }
+        } else{
+            header("Location: .?action=edit_teacher&id=$id"); // return back with error
+        }
     }
 }
 ?>

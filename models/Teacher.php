@@ -38,10 +38,10 @@ class Teacher extends DatabaseConnect
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':role_id', self::TEACHER_ROLE);
             $stmt->execute();
-            $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $teacher = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
           
-            return $subjects; // return to controller
+            return $teacher; // return to controller
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -60,6 +60,40 @@ class Teacher extends DatabaseConnect
             $result = $stmt->execute();
             $stmt->closeCursor();
             return $result; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function show(int $id)
+    {
+        try {
+            $query = 'SELECT * FROM users WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
+            $stmt->execute();
+            $teacher = $stmt->fetch(PDO::FETCH_ASSOC); // get subject with id
+            $stmt->closeCursor();
+
+            return $teacher;
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function update($id, $name, $gender, $phone)
+    {
+        try {
+            $query = 'UPDATE users SET name = :name, gender = :gender, phone = :phone WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':name', $name);
+            $stmt->bindValue(':gender', $gender); 
+            $stmt->bindValue(':phone', $phone); 
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
+            $teacher = $stmt->execute();
+            $stmt->closeCursor();
+
+            return $teacher;
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
