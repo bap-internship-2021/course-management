@@ -31,6 +31,24 @@ class Student extends DatabaseConnect
         }
     }
 
+    public function store($name, $gender, $phone, $role_id)
+    {
+        // var_dump($role_id);die();
+        try {
+            $query = 'INSERT INTO users (name, gender, phone, role_id) VALUES (:name, :gender, :phone, :role_id)';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':name', $name);
+            $stmt->bindValue(':gender', $gender); 
+            $stmt->bindValue(':phone', $phone); 
+            $stmt->bindValue(':role_id', Student::STUDENT_ROLE); 
+            $result = $stmt->execute();
+            $stmt->closeCursor();
+            return $result; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
     public function show(int $id)
     {
         try {

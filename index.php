@@ -69,6 +69,11 @@ switch ($action) {
             $studentController->updateStudent();
             break;
         }
+    case 'create_student':
+        {
+            $studentController->storeStudent();
+            break;
+        }
 
     
 }

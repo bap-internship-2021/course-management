@@ -19,6 +19,7 @@
                 </div>
                 <div class="modal-body">
                     <form action=".?action=create_subject" method="post">
+
                         <!-- subject name -->
                         <div class="mb-3">
                             <label for="name" class="form-label">Subject name</label>

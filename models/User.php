@@ -8,7 +8,7 @@ class User extends DatabaseConnect
 
 
     public int $id;
-    public int $role_id;
+    
     public string $name;
     public string $gender;
     public string $phone;
