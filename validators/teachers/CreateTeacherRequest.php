@@ -33,13 +33,7 @@ class CreateTeacherRequest
             $isOk = false;
         }
 
-        if (empty($data['role_id'])) {
-            $_SESSION['create_teacher']['Role_id_error'] = 'Role_id must not be empty';
-            $isOk = false;
-        } elseif (!is_numeric($data['credit_number'])) {
-            $_SESSION['create_teacher']['Role_iderror'] = 'Role_id must be a number';
-            $isOk = false;
-        }
+        
 
         if ($isOk == true) {
             return true;
