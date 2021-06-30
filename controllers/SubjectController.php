@@ -45,6 +45,10 @@ class SubjectController extends Subject
     public function edit()
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        if (!isset($id)) {
+            include_once 'views/errors/404.php';
+            die();
+        }
         // Get current subject with id from subject model
         $subject = parent::show($id);
 //         echo '<pre>';

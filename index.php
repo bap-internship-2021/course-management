@@ -78,7 +78,10 @@ switch ($action) {
         $studentController->storeStudent();
         break;
     }
-
-
+    default: // If not found
+    {
+        include_once 'views/errors/404.php';
+        die();
+    }
 }
 
