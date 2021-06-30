@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/Student.php'; // Call the Student model
+
 require_once 'validators/students/CreateStudentRequest.php';
 require_once 'validators/students/EditStudentRequest.php';
 class StudentController extends Student
