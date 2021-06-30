@@ -41,7 +41,30 @@
             </div>
         </div>
     </div>
+    <!--  Name error  -->
+    <?php if (isset($_SESSION['create_subject']['name_error'])) { ?>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-danger text-center" role="alert">
+                    <?php echo $_SESSION['create_subject']['name_error']; ?>
+                </div>
+            </div>
+        </div>
+    <?php }
+    unset($_SESSION['create_subject']['name_error']); ?>
 
+    <!-- credit number error -->
+    <?php if (isset($_SESSION['create_subject']['credit_number_error'])) { ?>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-danger text-center" role="alert">
+                    <?php echo $_SESSION['create_subject']['credit_number_error']; ?>
+                </div>
+            </div>
+        </div>
+    <?php }
+    unset($_SESSION['create_subject']['credit_number_error']); ?>
+    <!--  Alert success  -->
     <?php if (isset($_SESSION['create_subject']['success'])) { ?>
         <div class="row justify-content-center">
             <div class="col-6">
