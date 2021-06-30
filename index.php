@@ -83,6 +83,5 @@ switch ($action) {
     {
         $userController->status404();
     }
-    
 }
 
