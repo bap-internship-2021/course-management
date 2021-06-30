@@ -14,6 +14,14 @@ class StudentController extends Student
 
     }
 
-    
+    public function editStudent()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        // Get current subject with id from subject model
+        $students = parent::show($id);
+//         echo '<pre>';
+//         var_dump($students);die();
+        include_once 'views/students/edit.php';
+    }
 }
 ?>

@@ -30,4 +30,20 @@ class Student extends DatabaseConnect
             die($exception->getMessage());
         }
     }
+
+    public function show(int $id)
+    {
+        try {
+            $query = 'SELECT * FROM users WHERE id = :id';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
+            $stmt->execute();
+            $subject = $stmt->fetch(PDO::FETCH_ASSOC); // get subject with id
+            $stmt->closeCursor();
+
+            return $subject;
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
 }
