@@ -17,9 +17,9 @@
                     </a>
                 </li>
                     <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="form-basic.html" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href=".?action=students" aria-expanded="false">
                         <i class="mdi mdi-arrange-bring-forward"></i>
-                        <span class="hide-menu">Form Basic</span>
+                        <span class="hide-menu">Students</span>
                     </a>
                 </li>
                 
