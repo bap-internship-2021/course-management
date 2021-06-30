@@ -22,6 +22,13 @@
                         <span class="hide-menu">Students</span>
                     </a>
                 </li>
+                </li>
+                    <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href=".?action=teachers" aria-expanded="false">
+                        <i class="mdi mdi-arrange-bring-forward"></i>
+                        <span class="hide-menu">Teacher</span>
+                    </a>
+                </li>
                 
             </ul>
         </nav>

@@ -8,6 +8,7 @@
     <!-- Content -->
     <div class="container-fluid">
         <h1 class="text-blue text-center">Edit student</h1>
+
         <!--  Alert if update success  -->
         <?php if (isset($_SESSION['edit_student']['success'])) { ?>
             <div class="row justify-content-center">
@@ -19,6 +20,41 @@
             </div>
         <?php }
         unset($_SESSION['edit_student']['success']); ?>
+
+        <!-- Alert error -->
+        <?php if (isset($_SESSION['edit_student']['name_error'])) { ?>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-success text-center" role="alert">
+                        <?php echo $_SESSION['edit_student']['name_error']; ?>
+                    </div>
+                </div>
+            </div>
+        <?php }
+        unset($_SESSION['edit_student']['name_error']); ?>
+
+        <?php if (isset($_SESSION['edit_student']['gender_error'])) { ?>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-success text-center" role="alert">
+                        <?php echo $_SESSION['edit_student']['gender_error']; ?>
+                    </div>
+                </div>
+            </div>
+        <?php }
+        unset($_SESSION['edit_student']['gender_error']); ?>
+
+        <?php if (isset($_SESSION['edit_student']['phone_error'])) { ?>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-success text-center" role="alert">
+                        <?php echo $_SESSION['edit_student']['phone_error']; ?>
+                    </div>
+                </div>
+            </div>
+        <?php }
+        unset($_SESSION['edit_student']['phone_error']); ?>
+
         <div class="row justify-content-center">
             <div class="col-6">
                 <form action=".?action=update_student" method="post" class="border p-3 rounded">
@@ -31,7 +67,7 @@
                     <!-- subject name -->
                     <div class="mb-3">
                         <label for="name" class="form-label">student name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Student name"
+                        <input type="text" name="name" class="form-control" id="name" "
                                value="<?php echo (!empty($students['name'])) ? $students['name'] : '' ?>">
                     </div>
 

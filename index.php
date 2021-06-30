@@ -55,6 +55,7 @@ switch ($action) {
         $subjectController->deleteSubject();
         break;
     }
+
     // student
 
     case 'students':
@@ -79,6 +80,7 @@ switch ($action) {
         break;
     }
 
-
+    // teacher
+    
 }
 

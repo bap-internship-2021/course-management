@@ -52,16 +52,49 @@
         </div>
     </div>
 
-    <?php if (isset($_SESSION['create_subject']['success'])) { ?>
+    <?php if (isset($_SESSION['create_student']['success'])) { ?>
         <div class="row justify-content-center">
             <div class="col-6">
                 <div class="alert alert-success text-center" role="alert">
-                    <?php echo $_SESSION['create_subject']['success']; ?>
+                    <?php echo $_SESSION['create_student']['success']; ?>
                 </div>
             </div>
         </div>
     <?php }
-    unset($_SESSION['create_subject']['success']); ?>
+    unset($_SESSION['create_student']['success']); ?>
+
+    <?php if (isset($_SESSION['create_student']['name_error'])) { ?>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-success text-center" role="alert">
+                    <?php echo $_SESSION['create_student']['name_error']; ?>
+                </div>
+            </div>
+        </div>
+    <?php }
+    unset($_SESSION['create_student']['name_error']); ?>
+
+    <?php if (isset($_SESSION['create_student']['gender_error'])) { ?>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-success text-center" role="alert">
+                    <?php echo $_SESSION['create_student']['gender_error']; ?>
+                </div>
+            </div>
+        </div>
+    <?php }
+    unset($_SESSION['create_student']['gender_error']); ?>
+
+    <?php if (isset($_SESSION['create_student']['phone_error'])) { ?>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-success text-center" role="alert">
+                    <?php echo $_SESSION['create_student']['phone_error']; ?>
+                </div>
+            </div>
+        </div>
+    <?php }
+    unset($_SESSION['create_student']['phone_error']); ?>
     <!--  ENd form create subject-->
     <!--  Alert if update success  -->
 

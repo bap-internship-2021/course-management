@@ -1,7 +1,8 @@
 <?php
 
-require_once 'models/Student.php'; // Call the Subject model
-
+require_once 'models/Student.php'; // Call the Student model
+require_once 'validators/students/CreateStudentRequest.php';
+require_once 'validators/students/EditStudentRequest.php';
 class StudentController extends Student
 {
     public function listStudents()
@@ -30,13 +31,18 @@ class StudentController extends Student
         $name = filter_input(INPUT_POST, 'name');
         $gender = filter_input(INPUT_POST, 'gender');
         $phone = filter_input(INPUT_POST, 'phone');
+        $isValidData = EditStudentRequest::validateEditInfoStudent(['name' => $name, 'gender' => $gender, 'phone' => $phone]);
+        if ($isValidData == true) { // if pass validate
+            $result = parent::update($id, $name, $gender, $phone);
 
-        $result = parent::update($id, $name, $gender, $phone);
-        if ($result) {
-            $_SESSION['edit_student']['success'] = 'Update student success';
-            header("Location: .?action=edit_student&id=$id");
-        } else {
-            die('Error update');
+            if ($result) {
+                $_SESSION['edit_student']['success'] = 'Update student success';
+                header("Location: .?action=edit_student&id=$id");
+            } else {
+                die('Error update');
+            }
+        } else{
+            header("Location: .?action=edit_student&id=$id"); // return back with error
         }
     }
 
@@ -46,10 +52,16 @@ class StudentController extends Student
         $gender = filter_input(INPUT_POST, 'gender');
         $phone = filter_input(INPUT_POST, 'phone');
         $role_id = filter_input(INPUT_POST, 'role_id');
-        if (parent::store($name, $gender, $phone, $role_id)) {
-            $_SESSION['create_student']['success'] = 'Create student success';
-            header("Location: .?action=students"); // return view list subject
+        $isValidData = CreateStudentRequest::validateCreateInfoStudent(['name' => $name, 'gender' => $gender, 'phone' => $phone, 'role_id' => $role_id]);
+        if ($isValidData == true) {
+            if (parent::store($name, $gender, $phone, $role_id)) {
+                $_SESSION['create_student']['success'] = 'Create student success';
+                header("Location: .?action=students"); // return view list subject
+            }
+        }else{
+            header("Location: .?action=students"); // return view list subject with error
         }
+        
     }
 
 }
