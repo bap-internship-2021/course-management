@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS points
 );
 
 
-# Insert record
+-- Insert record
 USE course_management;
 INSERT INTO roles (name)
 VALUES ('Teacher'), -- id = 1

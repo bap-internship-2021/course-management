@@ -8,7 +8,7 @@ class User extends DatabaseConnect
 
 
     public int $id;
-    public int $role_id;
+    
     public string $name;
     public string $gender;
     public string $phone;
@@ -33,6 +33,16 @@ class User extends DatabaseConnect
      */
     public function index()
     {
+        try {
+            $query = 'SELECT * FROM users';
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
 
+            return $subjects; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
     }
 }
