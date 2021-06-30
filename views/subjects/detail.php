@@ -3,7 +3,7 @@
 
 <!-- Content -->
 <div class="container-fluid">
-    <h1 class="text-blue text-center">List subjects</h1>
+    <h1 class="text-blue text-center">Detail subject</h1>
     <table class="table">
         <thead>
         <tr>

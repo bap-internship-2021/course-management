@@ -2,7 +2,7 @@
 
 class CreateSubjectRequest
 {
-    public function validateCreateInfoSubject(array $data): bool
+    public static function validateCreateInfoSubject(array $data): bool
     {
         $isOk = true; // flag
         if (empty($data['name'])) {
