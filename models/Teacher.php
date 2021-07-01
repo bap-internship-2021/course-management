@@ -1,10 +1,14 @@
 <?php
+
 require_once 'connection.php';
 
-class Student extends DatabaseConnect
+class Teacher extends DatabaseConnect
 {
+    // Những field của model tương tác với database (The fields of model that contract with database)
+
+
     public int $id;
-    public int $role_id;
+    
     public string $name;
     public string $gender;
     public string $phone;
@@ -15,17 +19,29 @@ class Student extends DatabaseConnect
     const FEMALE_GENDER = 0; // female gender
     const MALE_GENDER = 1; // male gender
 
-    public function listStudents()
+    public function checkDatabase()
+    {
+        try {
+            return parent::__construct(); // Call Database Connection constructor
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    /**
+     * Get all user in resources
+     */
+    public function listTeachers()
     {
         try {
             $query = 'SELECT * FROM users WHERE role_id  = :role_id';
             $stmt = $this->db->prepare($query);
-            $stmt->bindValue(':role_id', self::STUDENT_ROLE);
+            $stmt->bindValue(':role_id', self::TEACHER_ROLE);
             $stmt->execute();
-            $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $teacher = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
           
-            return $subjects; // return to controller
+            return $teacher; // return to controller
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -40,7 +56,7 @@ class Student extends DatabaseConnect
             $stmt->bindValue(':name', $name);
             $stmt->bindValue(':gender', $gender); 
             $stmt->bindValue(':phone', $phone); 
-            $stmt->bindValue(':role_id', self::STUDENT_ROLE); 
+            $stmt->bindValue(':role_id', Teacher::TEACHER_ROLE); 
             $result = $stmt->execute();
             $stmt->closeCursor();
             return $result; // return to controller
@@ -56,10 +72,10 @@ class Student extends DatabaseConnect
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
             $stmt->execute();
-            $subject = $stmt->fetch(PDO::FETCH_ASSOC); // get subject with id
+            $teacher = $stmt->fetch(PDO::FETCH_ASSOC); // get subject with id
             $stmt->closeCursor();
 
-            return $subject;
+            return $teacher;
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -74,10 +90,10 @@ class Student extends DatabaseConnect
             $stmt->bindValue(':gender', $gender); 
             $stmt->bindValue(':phone', $phone); 
             $stmt->bindValue(':id', $id, PDO::PARAM_INT); // id param must be int
-            $result = $stmt->execute();
+            $teacher = $stmt->execute();
             $stmt->closeCursor();
 
-            return $result;
+            return $teacher;
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }

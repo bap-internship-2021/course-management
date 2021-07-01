@@ -87,33 +87,37 @@
         </div>
     <?php }
     unset($_SESSION['delete_subject']['success']); ?>
-    <h1 class="text-blue text-center">List subjects</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Credit number</th>
-            <th scope="col" colspan="2"></th>
-        </tr>
-        </thead>
-        <tbody>
+    
+    <div class="table-responsive">
+        <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List subjects</h1>
+        <table class="table table-striped" background="public/images/subjects.jpg">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Credit number</th>
+                <th scope="col" colspan="2"></th>
+            </tr>
+            </thead>
+            <tbody>
 
-        <?php if (!empty($subjects)) { ?>
-            <?php foreach ($subjects as $key => $subject) { ?>
-                <tr>
-                    <th scope="row"><?php echo $key ?></th>
-                    <td><?php echo $subject['name'] ?></td>
-                    <td><?php echo $subject['credit_number'] ?></td>
-                    <td><a class="btn btn-primary"
-                           href=".?action=edit_subject&id=<?php echo $subject['id']; ?>">Edit</a></td>
-                    <td><a class="btn btn-success" href=".?action=detail_subject&id=<?php echo $subject['id']; ?>">Detail</a>
-                    </td>
-                </tr>
+            <?php if (!empty($subjects)) { ?>
+                <?php foreach ($subjects as $key => $subject) { ?>
+                    <tr class="table_body">
+                        <th scope="row"><?php echo $key ?></th>
+                        <td><?php echo $subject['name'] ?></td>
+                        <td><?php echo $subject['credit_number'] ?></td>
+                        <td><a class="btn btn-primary"
+                            href=".?action=edit_subject&id=<?php echo $subject['id']; ?>">Edit</a></td>
+                        <td><a class="btn btn-success" href=".?action=detail_subject&id=<?php echo $subject['id']; ?>">Detail</a>
+                        </td>
+                    </tr>
+                <?php } ?>
             <?php } ?>
-        <?php } ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
 <!-- Footer -->
 <?php require_once 'views/footer_app.php'; ?>
+

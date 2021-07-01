@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Create new student
+        Create new teacher
     </button>
 
     <!-- Modal -->
@@ -13,15 +13,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Form create new student</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Form create new teacher</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action=".?action=create_student" method="post">
+                    <form action=".?action=create_teacher" method="post">
                         <!-- student name -->
                         <div class="mb-3">
-                            <label for="name" class="form-label">Student name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Student name">
+                            <label for="name" class="form-label">Teacher name</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Teacher name">
                         </div>
 
                         <!-- gender -->
@@ -29,11 +29,11 @@
                         <label for="gender" class="col-sm-12">Gender</label>
                         <div class="col-sm-12">
                             <select name="gender" class="form-control form-control-line">
-                                <option value="2">Nữ</option>
+                                <option value="0">Nữ</option>
                                 <option value="1">Nam</option>
                             </select>
                         </div>
-                    </div>
+                        </div>
 
                         <!-- phone -->
                         <div class="mb-3">
@@ -52,55 +52,55 @@
         </div>
     </div>
 
-    <?php if (isset($_SESSION['create_student']['success'])) { ?>
+    <?php if (isset($_SESSION['create_teacher']['success'])) { ?>
         <div class="row justify-content-center">
             <div class="col-6">
                 <div class="alert alert-success text-center" role="alert">
-                    <?php echo $_SESSION['create_student']['success']; ?>
+                    <?php echo $_SESSION['create_teacher']['success']; ?>
                 </div>
             </div>
         </div>
     <?php }
-    unset($_SESSION['create_student']['success']); ?>
+    unset($_SESSION['create_teacher']['success']); ?>
 
-    <?php if (isset($_SESSION['create_student']['name_error'])) { ?>
+    <?php if (isset($_SESSION['create_teacher']['name_error'])) { ?>
         <div class="row justify-content-center">
             <div class="col-6">
                 <div class="alert alert-success text-center" role="alert">
-                    <?php echo $_SESSION['create_student']['name_error']; ?>
+                    <?php echo $_SESSION['create_teacher']['name_error']; ?>
                 </div>
             </div>
         </div>
     <?php }
-    unset($_SESSION['create_student']['name_error']); ?>
+    unset($_SESSION['create_teacher']['name_error']); ?>
 
-    <?php if (isset($_SESSION['create_student']['gender_error'])) { ?>
+    <?php if (isset($_SESSION['create_teacher']['gender_error'])) { ?>
         <div class="row justify-content-center">
             <div class="col-6">
                 <div class="alert alert-success text-center" role="alert">
-                    <?php echo $_SESSION['create_student']['gender_error']; ?>
+                    <?php echo $_SESSION['create_teacher']['gender_error']; ?>
                 </div>
             </div>
         </div>
     <?php }
-    unset($_SESSION['create_student']['gender_error']); ?>
+    unset($_SESSION['create_teacher']['gender_error']); ?>
 
-    <?php if (isset($_SESSION['create_student']['phone_error'])) { ?>
+    <?php if (isset($_SESSION['create_teacher']['phone_error'])) { ?>
         <div class="row justify-content-center">
             <div class="col-6">
                 <div class="alert alert-success text-center" role="alert">
-                    <?php echo $_SESSION['create_student']['phone_error']; ?>
+                    <?php echo $_SESSION['create_teacher']['phone_error']; ?>
                 </div>
             </div>
         </div>
     <?php }
-    unset($_SESSION['create_student']['phone_error']); ?>
+    unset($_SESSION['create_teacher']['phone_error']); ?>
     <!--  ENd form create subject-->
     <!--  Alert if update success  -->
 
     <div class="table-responsive">
-        <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List students</h1>
-        <table id="tb" class="table table-striped" background="public/images/students.jpg">
+        <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List Teachers</h1>
+        <table class="table table-striped" background="public/images/teachers.jpg">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -112,14 +112,14 @@
             </thead>
             <tbody>
 
-            <?php if (!empty($students)) { ?>
-                <?php foreach ($students as $key => $st) { ?>
-                    <tr class="table_body_students">
+            <?php if (!empty($teachers)) { ?>
+                <?php foreach ($teachers as $key => $tc) { ?>
+                    <tr class="table_body">
                         <th scope="row"><?php echo $key ?></th>
-                        <td><?php echo $st['name'] ?></td>
-                        <td><?php echo (($st['gender'] == 2) ? 'Nữ' : 'Nam'); ?></td>
-                        <td><?php echo $st['phone'] ?></td>
-                        <td><a href=".?action=edit_student&id=<?php echo $st['id']; ?>" class="btn btn-primary">Edit</a></td>
+                        <td><?php echo $tc['name'] ?></td>
+                        <td><?php echo (($tc['gender'] == 0) ? 'Nữ' : 'Nam'); ?></td>
+                        <td><?php echo $tc['phone'] ?></td>
+                        <td><a href=".?action=edit_teacher&id=<?php echo $tc['id']; ?>" class="btn btn-primary">Edit</a></td>
                     </tr>
                 <?php } ?>
             <?php } ?>
@@ -129,11 +129,3 @@
 </div>
 <!-- Footer -->
 <?php require_once 'views/footer_app.php'; ?>
-
-<style type="text/css">
-    #tb{
-        background-size: cover;
-        font-size: 20px;
-        color: #fff;
-    }
-</style>
