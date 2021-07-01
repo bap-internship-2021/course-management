@@ -1,9 +1,9 @@
 use course_management;
 
 -- Số lượng sinh viên theo Khoa
-SELECT users.id, users.name, majors.name
+SELECT count(users.id) as 'so luong sinh vien', majors.name
 FROM users
-INNER JOIN majors ON users.id = majors.user_id
+INNER JOIN majors ON users.major_id = majors.id
 WHERE users.role_id = 2
 GROUP BY majors.name;
 

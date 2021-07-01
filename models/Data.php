@@ -12,8 +12,8 @@ class Data extends DatabaseConnect
     public function quantityStudentsMajors()
     {
         try {
-            $query = 'SELECT users.id, users.name, majors.name FROM users
-                        INNER JOIN majors ON users.major_id = majors.id WHERE role_id  = :role_id';    
+            $query = 'SELECT COUNT(users.id) as StudentCount, majors.name FROM users
+                        INNER JOIN majors ON users.major_id = majors.id WHERE role_id  = :role_id GROUP BY majors.name';    
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':role_id', self::STUDENT_ROLE);
             $stmt->execute();
