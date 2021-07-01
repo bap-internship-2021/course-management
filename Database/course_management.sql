@@ -3,7 +3,13 @@ CREATE
     CHARACTER SET utf8 COLLATE utf8_vietnamese_ci;
 
 USE course_management;
-
+CREATE TABLE IF NOT EXISTS admins
+(
+    id   INT AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+);
 -- Create roles table
 CREATE TABLE IF NOT EXISTS roles
 (
@@ -37,14 +43,24 @@ CREATE TABLE IF NOT EXISTS majors
 -- Create classrooms table
 CREATE TABLE IF NOT EXISTS classrooms
 (
-    id       INT AUTO_INCREMENT,
-    name     VARCHAR(50) NOT NULL,
-    major_id INT         NOT NULL,
-    user_id  INT         NOT NULL,
-    PRIMARY KEY (id),
-    CONSTRAINT FK_Major_Classroom FOREIGN KEY (major_id) REFERENCES majors (id),
-    CONSTRAINT FK_User_Classroom FOREIGN KEY (user_id) REFERENCES users (id)
+    id   INT AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
 );
+
+-- Create classroom_details table
+CREATE TABLE IF NOT EXISTS classroom_details
+(
+    id           INT AUTO_INCREMENT,
+    classroom_id INT NOT NULL,
+    major_id     INT NOT NULL,
+    user_id      INT NOT NULL,
+    CONSTRAINT FK_classrooms FOREIGN KEY (classroom_id) REFERENCES classrooms (id),
+    CONSTRAINT FK_majorsl FOREIGN KEY (major_id) REFERENCES majors (id),
+    CONSTRAINT FK_users FOREIGN KEY (user_id) REFERENCES users (id),
+    PRIMARY KEY (id)
+);
+
 -- Create subjects table
 CREATE TABLE IF NOT EXISTS subjects
 (
@@ -59,8 +75,8 @@ CREATE TABLE IF NOT EXISTS points
     id         INT AUTO_INCREMENT,
     user_id    INT NOT NULL,
     subject_id INT NOT NULL,
-    point      DOUBLE, # Diem thi
-    time       INT,    # So lan thi
+    point      DOUBLE, -- Diem thi
+    time       INT,    -- So lan thi
     PRIMARY KEY (id),
     CONSTRAINT FK_User_Point FOREIGN KEY (user_id) REFERENCES users (id),
     CONSTRAINT FK_Subject_Point FOREIGN KEY (subject_id) REFERENCES subjects (id)
@@ -69,6 +85,9 @@ CREATE TABLE IF NOT EXISTS points
 
 -- Insert record
 USE course_management;
+INSERT INTO admins (email, password)
+VALUES ('admin@gmail.com', '');
+
 INSERT INTO roles (name)
 VALUES ('Teacher'), -- id = 1
        ('Student'); -- id = 2
@@ -86,21 +105,26 @@ VALUES (1, 'Trang', 0, '242342422'),
        (2, 'Trinh', 0, '234234234');
 
 INSERT INTO majors (name, user_id)
-VALUES ('CNTT', 1),
+VALUES ('Information technology', 1),
        ('Du lịch', 2),
        ('Marketing', 3),
        ('Business', 4);
 
-INSERT INTO classrooms(name, major_id, user_id)
-VALUES ('lop A2', 1, 2),
-       ('lop B3', 1, 3),
-       ('lop B4', 2, 5);
+INSERT INTO classrooms(name)
+VALUES ('lop A2'),
+       ('lop B3'),
+       ('lop B4');
+
+INSERT INTO classroom_details(classroom_id, major_id, user_id)
+VALUES (1, 1, 1),
+       (2, 2, 2),
+       (3, 3, 3);
 
 INSERT INTO subjects(name, credit_number)
 VALUES ('Programing', 1),
        ('Networking', 2),
        ('Security', 3),
-       ('Project management',5);
+       ('Project management', 5);
 
 INSERT INTO points(subject_id, user_id, point, time)
 VALUES (1, 5, 10, 1),
