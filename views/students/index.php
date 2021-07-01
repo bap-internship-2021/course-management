@@ -99,8 +99,8 @@
     <!--  Alert if update success  -->
 
     <div class="table-responsive">
-        <h1 class="text-blue text-center">List students</h1>
-        <table class="table table-striped">
+        <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List students</h1>
+        <table id="tb" class="table table-striped" background="public/images/students.jpg">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -114,7 +114,7 @@
 
             <?php if (!empty($students)) { ?>
                 <?php foreach ($students as $key => $st) { ?>
-                    <tr>
+                    <tr class="table_body_students">
                         <th scope="row"><?php echo $key ?></th>
                         <td><?php echo $st['name'] ?></td>
                         <td><?php echo (($st['gender'] == 2) ? 'Nữ' : 'Nam'); ?></td>
@@ -129,3 +129,11 @@
 </div>
 <!-- Footer -->
 <?php require_once 'views/footer_app.php'; ?>
+
+<style type="text/css">
+    #tb{
+        background-size: cover;
+        font-size: 20px;
+        color: #fff;
+    }
+</style>

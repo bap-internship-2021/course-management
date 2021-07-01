@@ -99,8 +99,8 @@
     <!--  Alert if update success  -->
 
     <div class="table-responsive">
-        <h1 class="text-blue text-center">List Teachers</h1>
-        <table class="table table-striped">
+        <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List Teachers</h1>
+        <table class="table table-striped" background="public/images/teachers.jpg">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -114,7 +114,7 @@
 
             <?php if (!empty($teachers)) { ?>
                 <?php foreach ($teachers as $key => $tc) { ?>
-                    <tr>
+                    <tr class="table_body">
                         <th scope="row"><?php echo $key ?></th>
                         <td><?php echo $tc['name'] ?></td>
                         <td><?php echo (($tc['gender'] == 0) ? 'Nữ' : 'Nam'); ?></td>

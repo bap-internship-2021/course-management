@@ -89,8 +89,8 @@
     unset($_SESSION['delete_subject']['success']); ?>
     
     <div class="table-responsive">
-        <h1 class="text-blue text-center">List subjects</h1>
-        <table class="table table-striped">
+        <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List subjects</h1>
+        <table class="table table-striped" background="public/images/subjects.jpg">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -103,7 +103,7 @@
 
             <?php if (!empty($subjects)) { ?>
                 <?php foreach ($subjects as $key => $subject) { ?>
-                    <tr>
+                    <tr class="table_body">
                         <th scope="row"><?php echo $key ?></th>
                         <td><?php echo $subject['name'] ?></td>
                         <td><?php echo $subject['credit_number'] ?></td>
@@ -120,3 +120,4 @@
 </div>
 <!-- Footer -->
 <?php require_once 'views/footer_app.php'; ?>
+
