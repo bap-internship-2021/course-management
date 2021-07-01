@@ -19,7 +19,15 @@ class DatabaseConnect
             $query = 'USE `course_management`';
             $this->db->prepare($query)->execute();
 
-            $query =    'CREATE TABLE IF NOT EXISTS roles
+            $query =    '
+                        CREATE TABLE IF NOT EXISTS admins
+                        (
+                             id   INT AUTO_INCREMENT,
+                             email VARCHAR(50) NOT NULL UNIQUE,
+                             password VARCHAR(50) NOT NULL,
+                             PRIMARY KEY (id)
+                        );
+                        CREATE TABLE IF NOT EXISTS roles
                         (
                             id   INT AUTO_INCREMENT,
                             name VARCHAR(50) NOT NULL,

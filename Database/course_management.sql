@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS points
 -- Insert record
 USE course_management;
 INSERT INTO admins (email, password)
-VALUES ('admin@gmail.com', '');
+VALUES ('admin@gmail.com', '123456789');
 
 INSERT INTO roles (name)
 VALUES ('Teacher'), -- id = 1

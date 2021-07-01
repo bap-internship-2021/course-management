@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bb937a2-1bed-405d-9ea3-e200e1606a22" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/course_management.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/course_management.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4b194db2-04fa-4387-bd2d-331cd9c15ebb/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4b194db2-04fa-4387-bd2d-331cd9c15ebb/entities/entities.dat.values" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4b194db2-04fa-4387-bd2d-331cd9c15ebb/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4b194db2-04fa-4387-bd2d-331cd9c15ebb/entities/entities.dat.values.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/connection.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +49,7 @@
       <workItem from="1625033613777" duration="2694000" />
       <workItem from="1625038001534" duration="953000" />
       <workItem from="1625041157177" duration="1256000" />
-      <workItem from="1625099867879" duration="3778000" />
+      <workItem from="1625099867879" duration="3991000" />
     </task>
     <servers />
   </component>
