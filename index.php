@@ -5,11 +5,13 @@ require_once 'controllers/UserController.php'; //Call the User controller
 require_once 'controllers/SubjectController.php'; //Call the Subject controller
 require_once 'controllers/StudentController.php'; //Call the Student controller
 require_once 'controllers/TeacherController.php'; //Call the Student controller
+require_once 'controllers/DataController.php'; //Call the Student controller
 
 $userController = new UserController(); // Create obj of UserController
 $subjectController = new SubjectController(); // Create obj of UserController
 $studentController = new StudentController(); // Create obj of StudentController
 $teacherController = new TeacherController(); // Create obj of TeacherController
+$dataController = new DataController(); // Create obj of TeacherController
 
 // Default action
 $action = filter_input(INPUT_POST, 'action'); // default is post method
@@ -104,6 +106,13 @@ switch ($action) {
     case 'update_teacher':
     {
         $teacherController->updateTeacher();
+        break;
+    }
+
+    // list
+    case 'data': // return view thống kê
+    {
+        $dataController->handleQuantityStudentMajors();
         break;
     }
 }

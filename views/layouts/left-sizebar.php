@@ -29,6 +29,13 @@
                         <span class="hide-menu">Teacher</span>
                     </a>
                 </li>
+                </li>
+                    <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href=".?action=data" aria-expanded="false">
+                        <i class="mdi mdi-arrange-bring-forward"></i>
+                        <span class="hide-menu">Data Statistics</span>
+                    </a>
+                </li>
                 
             </ul>
         </nav>
