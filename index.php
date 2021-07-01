@@ -114,7 +114,11 @@ switch ($action) {
     {
         $dataController->handleQuantityStudentsMajors();
         break;
-        
+    }
+    case 'data2': // return view thống kê
+    {
+        $dataController->handleQuantitySubjectsMajors();
+        break;
     }
 
 }

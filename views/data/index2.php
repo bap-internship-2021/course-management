@@ -8,19 +8,17 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Majors</th>
-                        <th scope="col">Quantity (Students)</th>
-                        
+                        <th scope="col">Quantity (Subjects)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(!empty($quantityStudentsMajors)) {?>
+                    <?php if(!empty($quantitySubjectsMajors)) {?>
                         
-                    <?php foreach ($quantityStudentsMajors as $key => $qsm) { ?>
+                    <?php foreach ($quantitySubjectsMajors as $key => $qss) { ?>
                         
                     <tr>
-                        <th scope="row"><?php echo $qsm['name'] ?></th>
-                        <td><?php echo $qsm['StudentCount'] ?></td>
-                        
+                        <th scope="row"><?php echo $qss['name'] ?></th>
+                        <td><?php echo $qss['SubjectCount'] ?></td>
                         
                     </tr>
                     <?php } ?>
@@ -31,8 +29,7 @@
         
         <div class="button-slide">
             <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
-            <span id="btn-next"><a href=".?action=data2"></a><i class="fas fa-chevron-right"></i></span>
-            
+            <span id="btn-next"><i class="fas fa-chevron-right"></i></span>
         </div>
     </div>
 
