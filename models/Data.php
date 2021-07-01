@@ -19,8 +19,21 @@ class Data extends DatabaseConnect
             $stmt->execute();
             $quantity = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            echo "</pre>";
-            print_r($quantity); exit();
+            return $quantity; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
+    public function quantitySubjectsMajors()
+    {
+        try {
+            $query = 'SELECT COUNT(subjects.id) as SubjectCount, majors.name FROM subjects
+                        INNER JOIN majors ON majors.id = subjects.major_id GROUP BY majors.name';    
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $quantity = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
             return $quantity; // return to controller
         } catch (PDOException $exception) {
             die($exception->getMessage());

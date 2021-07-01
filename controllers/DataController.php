@@ -3,13 +3,19 @@ require_once 'models/Data.php'; // Call the Student model
 
 class DataController extends Data
 {
-    public function handleQuantityStudentMajors()
+    public function handleQuantityStudentsMajors()
     {
-        $quantity = parent::quantityStudentsMajors();
+        $quantityStudentsMajors = parent::quantityStudentsMajors();
+        $quantitySubjectsMajors = parent::quantitySubjectsMajors();
         // Debug
-        // echo '<pre>';
-        // print_r($students);die();
+        echo '<pre>';  echo 'sinh vien theo khoa<br>';
+        print_r($quantityStudentsMajors);
+        echo 'Subjecct theo khoa<br>';
+        print_r($quantitySubjectsMajors);
+        die();
         include_once 'views/data/index.php';
     }
+
+    
 }
 ?>
