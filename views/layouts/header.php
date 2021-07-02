@@ -22,9 +22,9 @@
                     <!-- Logo text -->
                     <span class="logo-text">
                         <!-- dark Logo text -->
-                        <img src="public/assets/images/logo-text.png" alt="homepage" class="dark-logo">
+                        <img src="public/images/anni.jpg" alt="homepage" class="light-logo" width="170px">
                         <!-- Light Logo text -->
-                        <img src="public/assets/images/logo-light-text.png" class="light-logo" alt="homepage">
+                        <!-- <img src="public/assets/images/logo-light-text.png" class="light-logo" alt="homepage"> -->
                     </span>
                 </a>
             </div>

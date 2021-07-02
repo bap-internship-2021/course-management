@@ -4,14 +4,14 @@
     <div class="data">
         <div>
             <h1 style="text-align: center; margin-bottom: 30px; font-weight:bold;">List of Students by Majors </h1>
-            <table class="table table-striped" background="public/images/data1.jpg">
+            <table class="table table-striped" background="public/images/teachers.jpg">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Majors</th>
                         <th scope="col">Quantity (Students)</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="font-weight: bold;">
                     <?php if(!empty($quantityStudentsMajors)) {?>
                         
                     <?php foreach ($quantityStudentsMajors as $key => $qsm) { ?>

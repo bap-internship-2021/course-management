@@ -20,14 +20,14 @@
  }
  span#btn-prev{
     position: absolute;
-    top: 15%;
+    top: 0%;
     left: 0%;
     z-index: 10;
     cursor: pointer;
  }
  span#btn-next{
     position: absolute;
-    top: 15%;
+    top: 0%;
     right: 0%;
     z-index: 10;
     cursor: pointer;
