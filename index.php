@@ -21,15 +21,20 @@ $action = filter_input(INPUT_POST, 'action'); // default is post method
 if ($action == null) { // if action is null then set action = input get type
     $action = filter_input(INPUT_GET, 'action');
     if ($action == null) {
-        $action = 'home'; // set action default is home
+        $action = 'login'; // set action default is home
     }
 }
 
 if (!empty($_SESSION['user_session'])) { // if user authenticate
     if (in_array($action, ['login', 'handlelogin'])) { // if action are login and handlelogin then redirect to root directory
-        header('Location: /'); // Return redirect back
+        header('Location: .?action=home'); // Return redirect back
+    }
+}else{
+    if (!in_array($action, ['login', 'handlelogin'])) { // if action are login and handlelogin then redirect to root directory
+        header('Location: .?action=login'); // Return redirect back
     }
 }
+
 
 switch ($action) {
     case 'home': // Home page
@@ -146,6 +151,11 @@ switch ($action) {
         $loginController->handleLogin();
         break;
     }
+    case'handlelogout':
+        {
+            $loginController->handleLogout();
+            break;
+        }
 
 }
 

@@ -5,6 +5,7 @@ Class Login extends DatabaseConnect
 {
     public function userLogin($email, $password)
     {
+
         try {
             $query = 'SELECT * FROM admins WHERE (email = :email) AND (password = :password)';
             $statement = $this->db->prepare($query);

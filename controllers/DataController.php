@@ -1,6 +1,6 @@
 <?php
 require_once 'models/Data.php'; // Call the Student model
-
+require_once 'controllers/LoginController.php';
 class DataController extends Data
 {
     public function handleQuantityStudentsMajors()
