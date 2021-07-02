@@ -82,7 +82,7 @@ class Data extends DatabaseConnect
                       INNER JOIN users u ON p.user_id = p.user_id
                       INNER JOIN classroom_details cd on u.id = cd.user_id
                       INNER JOIN classrooms c on cd.classroom_id = c.id
-                      WHERE u.role_id = 2';
+                      WHERE u.role_id = :role_id';
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':role_id', self::STUDENT_ROLE);
             $stmt->execute();
@@ -93,5 +93,25 @@ class Data extends DatabaseConnect
             die($exception->getMessage());
         }
     }
+
+    public function listStudentHadTwoTimeOnWard()
+    {
+        try {
+            $query = 'SELECT u.name as userName, p.time as pointTime, s.name as subjectName
+                      FROM users u
+                      INNER JOIN points p ON u.id = p.user_id
+                      INNER JOIN subjects s ON p.subject_id = s.id
+                      WHERE (u.role_id = :role_id) AND (p.time >= 2);';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':role_id', self::STUDENT_ROLE);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            return $results; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
+
 
 }

@@ -38,12 +38,12 @@ class DataController extends Data
     public function handleListStudentPoints()
     {
         $results = parent::listStudentPoin();
-//            echo '<pre>';
-//            print_r($results);die();
         include_once 'views/data/index4.php';
     }
-    public function  handleListStudentInfo()
-    {
 
+    public function  handleListStudentHadTwoTimeOnWard()
+    {
+        $results = parent::listStudentHadTwoTimeOnWard();
+        include_once 'views/data/index5.php';
     }
 }

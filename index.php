@@ -144,8 +144,12 @@ switch ($action) {
         $dataController->handleListStudentPoints();
         break;
     }
-    // login
-    case 'login':
+    case 'data5' :
+    {
+        $dataController->handleListStudentHadTwoTimeOnWard();
+        break;
+    }
+    case 'login': // login
     {
         // echo 'ok';die();
         $loginController->returnViewLogin();
