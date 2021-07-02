@@ -17,7 +17,7 @@
 
                 <?php foreach ($results as $key => $item) { ?>
 
-                    <tr>
+                    <tr style="font-weight: bold;">
                         <th scope="row"><?php echo $item['userName'] ?></th>
                         <td ><?php echo $item['pointTime'] ?></td>
                         <td><?php echo $item['subjectName'] ?></td>
@@ -29,8 +29,8 @@
     </div>
 
     <div class="button-slide">
-        <span id="btn-prev"><a href=".?action=data2"><i class="fas fa-chevron-left"></i></a></span>
-        <span id="btn-next"><a href=""><i class="fas fa-chevron-right"></i></a></span>
+        <span id="btn-prev"><a href=".?action=data4"><i class="fas fa-chevron-left"></i></a></span>
+        <span id="btn-next"><a href=".?action=data"><i class="fas fa-chevron-right"></i></a></span>
     </div>
 </div>
 

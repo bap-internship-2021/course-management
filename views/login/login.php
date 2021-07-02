@@ -7,22 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container">
+<div class="container" style="background-image: url('public/images/anni.jpg'); height:600px; width:100%;">
 <?php if (isset($_SESSION['login_message'])) {
     unset($_SESSION['login_message']) ?>
     <p>Login fail, please try again!</p>
 <?php } ?>
-    <div class="row justify-content-center mt-5">
-        <div class="col-5 ">
+    <div class="row justify-content-center mt-3">
+        <div class="col-5">
             <div class="login-form">
-                <h1 class="text-center">Login</h1>
-                    <form action=".?action=handlelogin" method="POST" class="border rounded p-5">
+                <h1 class="text-center" style="font-weight: bold; color:#fff;">Login</h1>
+                    <form action=".?action=handlelogin" method="POST" class="border rounded p-4">
                         <div class="form-group">
-                            <lable for="email">Email</lable>
+                            <lable for="email" style="font-weight: bold; color:#fff;">Email</lable>
                             <input type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" value="<?php if (!empty($_COOKIE['email'])) {echo $_COOKIE['email']; } ?>">
                         </div>
                         <div class="form-group">
-                            <lable for="password">Password</lable>
+                            <lable for="password" style="font-weight: bold; color:#fff;">Password</lable>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?php if (!empty($_COOKIE['password'])) {echo $_COOKIE['password'];} ?>">
                         </div>
                         <div class="form-group text-center">
