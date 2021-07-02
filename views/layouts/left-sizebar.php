@@ -5,9 +5,9 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="in">
                 <li class="sidebar-item selected">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link active" href="index.html" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link active" href=".?action=home" aria-expanded="false">
                         <i class="mdi mdi-av-timer"></i>
-                        <span class="hide-menu">Dashboard</span>
+                        <span class="hide-menu">Home</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

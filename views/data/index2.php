@@ -4,7 +4,7 @@
     <div class="data">
         <div>
             <h1 style="text-align: center; margin-bottom: 30px; font-weight:bold;">List of Subjects by Majors </h1>
-            <table class="table table-striped" background="public/images/data1.jpg">
+            <table class="table table-striped" background="public/images/data3.jfif">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Majors</th>

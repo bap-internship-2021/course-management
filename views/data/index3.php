@@ -4,7 +4,7 @@
     <div class="data">
         <div>
             <h1 style="text-align: center; margin-bottom: 30px; font-weight:bold;">Students's GPA </h1>
-            <table class="table table-striped" background="public/images/data1.jpg">
+            <table class="table table-striped" background="public/images/data2.jfif">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Students</th>

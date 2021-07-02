@@ -4,14 +4,16 @@ session_start();
 require_once 'controllers/UserController.php'; //Call the User controller
 require_once 'controllers/SubjectController.php'; //Call the Subject controller
 require_once 'controllers/StudentController.php'; //Call the Student controller
-require_once 'controllers/TeacherController.php'; //Call the Student controller
-require_once 'controllers/DataController.php'; //Call the Student controller
+require_once 'controllers/TeacherController.php'; //Call the Teacher controller
+require_once 'controllers/DataController.php'; //Call the Data controller
+require_once 'controllers/LoginController.php'; //Call the Login controller
 
 $userController = new UserController(); // Create obj of UserController
-$subjectController = new SubjectController(); // Create obj of UserController
+$subjectController = new SubjectController(); // Create obj of SubjectController
 $studentController = new StudentController(); // Create obj of StudentController
 $teacherController = new TeacherController(); // Create obj of TeacherController
-$dataController = new DataController(); // Create obj of TeacherController
+$dataController = new DataController(); // Create obj of DataController
+$loginController = new LoginController(); // Create obj of LoginController
 
 // Default action
 $action = filter_input(INPUT_POST, 'action'); // default is post method
@@ -20,6 +22,12 @@ if ($action == null) { // if action is null then set action = input get type
     $action = filter_input(INPUT_GET, 'action');
     if ($action == null) {
         $action = 'home'; // set action default is home
+    }
+}
+
+if (!empty($_SESSION['user_session'])) { // if user authenticate
+    if (in_array($action, ['login', 'handlelogin'])) { // if action are login and handlelogin then redirect to root directory
+        header('Location: /'); // Return redirect back
     }
 }
 
@@ -125,5 +133,19 @@ switch ($action) {
         $dataController->handleQuantityAvgPoints();
         break;
     }
+
+    // login
+    case 'login':
+    {
+        // echo 'ok';die();
+        $loginController->returnViewLogin();
+        break;
+    }
+    case 'handlelogin':
+    {
+        $loginController->handleLogin();
+        break;
+    }
+
 }
 
