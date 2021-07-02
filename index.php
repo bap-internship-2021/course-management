@@ -139,6 +139,11 @@ switch ($action) {
         break;
     }
 
+    case 'data4':
+    {
+        $dataController->handleListStudentPoints();
+        break;
+    }
     // login
     case 'login':
     {

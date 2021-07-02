@@ -34,5 +34,16 @@ class DataController extends Data
         // die();
         include_once 'views/data/index3.php';
     }
+
+    public function handleListStudentPoints()
+    {
+        $results = parent::listStudentPoin();
+//            echo '<pre>';
+//            print_r($results);die();
+        include_once 'views/data/index4.php';
+    }
+    public function  handleListStudentInfo()
+    {
+
+    }
 }
-?>
