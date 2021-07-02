@@ -29,7 +29,7 @@ if (!empty($_SESSION['user_session'])) { // if user authenticate
     if (in_array($action, ['login', 'handlelogin'])) { // if action are login and handlelogin then redirect to root directory
         header('Location: .?action=home'); // Return redirect back
     }
-}else{
+} else {
     if (!in_array($action, ['login', 'handlelogin'])) { // if action are login and handlelogin then redirect to root directory
         header('Location: .?action=login'); // Return redirect back
     }
@@ -98,7 +98,7 @@ switch ($action) {
     }
 
     // 404
-    
+
 
     // teacher
     case 'teachers':
@@ -152,10 +152,13 @@ switch ($action) {
         break;
     }
     case'handlelogout':
-        {
-            $loginController->handleLogout();
-            break;
-        }
-
+    {
+        $loginController->handleLogout();
+        break;
+    }
+    default:
+    {
+        $userController->redirectIfNotFound();
+    }
 }
 

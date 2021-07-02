@@ -2,6 +2,7 @@
 
 require_once 'models/User.php'; // Call the Subject model
 require_once 'controllers/LoginController.php';
+
 class UserController extends User
 {
     public function home()
@@ -14,5 +15,14 @@ class UserController extends User
             die($exception->getMessage());
         }
     }
-    
+
+    public function redirectIfNotFound()
+    {
+        try {
+            include_once 'views/errors/404.php';
+        } catch (Exception $exception) {
+            die($exception->getMessage());
+        }
+    }
+
 }
