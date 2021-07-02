@@ -9,7 +9,6 @@
                     <tr>
                         <th scope="col">Majors</th>
                         <th scope="col">Quantity (Students)</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
@@ -20,8 +19,6 @@
                     <tr>
                         <th scope="row"><?php echo $qsm['name'] ?></th>
                         <td><?php echo $qsm['StudentCount'] ?></td>
-                        
-                        
                     </tr>
                     <?php } ?>
                     <?php } ?>
@@ -31,7 +28,7 @@
         
         <div class="button-slide">
             <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
-            <span id="btn-next"><a href=".?action=data2"></a><i class="fas fa-chevron-right"></i></span>
+            <span id="btn-next"><a href=".?action=data2"><i class="fas fa-chevron-right"></i></a></span>
             
         </div>
     </div>

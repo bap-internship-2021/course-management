@@ -28,7 +28,7 @@
         </div>
         
         <div class="button-slide">
-            <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
+            <span id="btn-prev"><a href=".?action=data"><i class="fas fa-chevron-left"></i></a></span>
             <span id="btn-next"><i class="fas fa-chevron-right"></i></span>
         </div>
     </div>

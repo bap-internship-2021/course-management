@@ -29,6 +29,5 @@ class DataController extends Data
         include_once 'views/data/index2.php';
     }
 
-    
 }
 ?>
