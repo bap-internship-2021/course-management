@@ -100,9 +100,9 @@
 
     <div class="table-responsive">
         <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List students</h1>
-        <table id="tb" class="table table-striped" background="public/images/students.jpg">
+        <table id="tb" class="table table-striped" background="public/images/teachers.jpg">
             <thead>
-            <tr>
+            <tr style="color:black; font-weight: bold;">
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Gender</th>

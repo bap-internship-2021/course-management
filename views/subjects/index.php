@@ -90,7 +90,7 @@
     
     <div class="table-responsive">
         <h1 class="text-blue text-center" style="background: #fff; font-size: 50px">List subjects</h1>
-        <table class="table table-striped" background="public/images/subjects.jpg">
+        <table class="table table-striped" background="public/images/teachers.jpg">
             <thead>
             <tr>
                 <th scope="col">#</th>

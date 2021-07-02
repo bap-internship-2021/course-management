@@ -9,22 +9,22 @@
             <!-- Logo -->
             <!-- ============================================================== -->
             <div class="navbar-brand">
-                <a href="index.html" class="logo">
+                <a href=".?action=home" class="logo">
                     <!-- Logo icon -->
                     <b class="logo-icon">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
                         <img src="public/assets/images/logo-icon.png" alt="homepage" class="dark-logo">
                         <!-- Light Logo icon -->
-                        <img src="public/assets/images/logo-light-icon.png" alt="homepage" class="light-logo">
+                        <img src="public/images/Bap-logo.jpg" alt="homepage" class="rounded-circle" width="60px">
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <span class="logo-text">
                         <!-- dark Logo text -->
-                        <img src="public/assets/images/logo-text.png" alt="homepage" class="dark-logo">
+                        <img src="public/images/anni.jpg" alt="homepage" class="light-logo" width="170px">
                         <!-- Light Logo text -->
-                        <img src="public/assets/images/logo-light-text.png" class="light-logo" alt="homepage">
+                        <!-- <img src="public/assets/images/logo-light-text.png" class="light-logo" alt="homepage"> -->
                     </span>
                 </a>
             </div>
