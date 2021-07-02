@@ -13,8 +13,9 @@ join majors on majors.id = subjects.major_id
 group by majors.name;
 
 --cau 3
-SELECT users.name, users.id, users.role_id, points.point from users
+SELECT users.name, users.role_id, AVG(points.point) from users
 join points on users.id = points.user_id
-where users.role_id = 2;
+where users.role_id = 2
+GROUP BY users.name;
 
 -- cau 4

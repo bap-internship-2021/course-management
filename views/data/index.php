@@ -3,7 +3,7 @@
 
     <div class="data">
         <div>
-            <h1 style="text-align: center; margin-bottom: 30px;">Quantity </h1>
+            <h1 style="text-align: center; margin-bottom: 30px; font-weight:bold;">List of Students by Majors </h1>
             <table class="table table-striped" background="public/images/data1.jpg">
                 <thead class="thead-light">
                     <tr>

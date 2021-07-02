@@ -3,7 +3,7 @@
 
     <div class="data">
         <div>
-            <h1 style="text-align: center; margin-bottom: 30px;">Quantity </h1>
+            <h1 style="text-align: center; margin-bottom: 30px; font-weight:bold;">List of Subjects by Majors </h1>
             <table class="table table-striped" background="public/images/data1.jpg">
                 <thead class="thead-light">
                     <tr>
@@ -29,7 +29,7 @@
         
         <div class="button-slide">
             <span id="btn-prev"><a href=".?action=data"><i class="fas fa-chevron-left"></i></a></span>
-            <span id="btn-next"><i class="fas fa-chevron-right"></i></span>
+            <span id="btn-next"><a href=".?action=data3"><i class="fas fa-chevron-right"></i></a></span>
         </div>
     </div>
 

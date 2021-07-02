@@ -120,6 +120,10 @@ switch ($action) {
         $dataController->handleQuantitySubjectsMajors();
         break;
     }
-
+    case 'data3':
+    {
+        $dataController->handleQuantityAvgPoints();
+        break;
+    }
 }
 

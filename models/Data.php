@@ -39,4 +39,20 @@ class Data extends DatabaseConnect
             die($exception->getMessage());
         }
     }
+
+    public function quantityAvgPoints()
+    {
+        try {
+            $query = 'SELECT users.name, users.role_id, AVG(points.point) as Average FROM users
+                        INNER JOIN points ON users.id = points.user_id WHERE role_id  = :role_id GROUP BY users.name';    
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':role_id', self::STUDENT_ROLE);
+            $stmt->execute();
+            $quantity = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            return $quantity; // return to controller
+        } catch (PDOException $exception) {
+            die($exception->getMessage());
+        }
+    }
 }
