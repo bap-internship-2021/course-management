@@ -5,12 +5,37 @@
 
 .table_body_students{
     font-weight: 1000;
-    color:#fff;
-    
-    
+    color: black;
 }
 
 .table-striped{
     background-size: cover;
 }
 
+
+ .button-slide span{
+    color: blue;
+    font-size: 60px;
+    opacity: 0.6;
+ }
+ span#btn-prev{
+    position: absolute;
+    top: 15%;
+    left: 0%;
+    z-index: 10;
+    cursor: pointer;
+ }
+ span#btn-next{
+    position: absolute;
+    top: 15%;
+    right: 0%;
+    z-index: 10;
+    cursor: pointer;
+ }
+
+ .data{
+     margin-top: 50px;
+ }
+
+
+ 

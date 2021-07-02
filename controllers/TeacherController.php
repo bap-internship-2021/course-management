@@ -3,7 +3,7 @@
 require_once 'models/Teacher.php'; // Call the Teacher model
 require_once 'validators/teachers/CreateTeacherRequest.php';
 require_once 'validators/teachers/EditTeacherRequest.php';
-
+require_once 'controllers/LoginController.php';
 class TeacherController extends Teacher
 {
     public function listTeachers()

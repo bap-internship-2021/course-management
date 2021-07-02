@@ -4,7 +4,7 @@
 require_once 'models/Subject.php'; // Call the Subject model
 require_once 'validators/subjects/EditSubjectRequest.php';
 require_once 'validators/subjects/CreateSubjectRequest.php';
-
+require_once 'controllers/LoginController.php';
 class SubjectController extends Subject
 {
     /**

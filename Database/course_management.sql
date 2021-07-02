@@ -18,27 +18,28 @@ CREATE TABLE IF NOT EXISTS roles
     PRIMARY KEY (id)
 );
 
--- Create users table
-CREATE TABLE IF NOT EXISTS users
-(
-    id      INT AUTO_INCREMENT,
-    role_id INT         NOT NULL,
-    name    VARCHAR(50) NOT NULL,
-    gender  VARCHAR(50) NOT NULL,
-    phone   VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id),
-    CONSTRAINT FK_Role_User FOREIGN KEY (role_id) REFERENCES roles (id)
-);
 
 -- Create majors table
 CREATE TABLE IF NOT EXISTS majors
 (
     id      INT AUTO_INCREMENT,
     name    VARCHAR(50) NOT NULL,
-    user_id INT         NOT NULL,
-    PRIMARY KEY (id),
-    CONSTRAINT FK_User_Major FOREIGN KEY (user_id) REFERENCES users (id)
+    PRIMARY KEY (id)
 );
+-- Create users table
+CREATE TABLE IF NOT EXISTS users
+(
+    id      INT AUTO_INCREMENT,
+    role_id INT         NOT NULL,
+    major_id INT NOT NULL,
+    name    VARCHAR(50) NOT NULL,
+    gender  VARCHAR(50) NOT NULL,
+    phone   VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT FK_Role_User FOREIGN KEY (role_id) REFERENCES roles (id),
+    CONSTRAINT FK_Major_User FOREIGN KEY (major_id) REFERENCES majors (id)
+);
+
 
 -- Create classrooms table
 CREATE TABLE IF NOT EXISTS classrooms
@@ -67,7 +68,9 @@ CREATE TABLE IF NOT EXISTS subjects
     id            INT AUTO_INCREMENT,
     name          VARCHAR(50) NOT NULL,
     credit_number VARCHAR(25) NOT NULL,
-    PRIMARY KEY (id)
+    major_id      INT NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT FK_maijors_subject FOREIGN KEY (major_id) REFERENCES majors (id)
 );
 -- Create points table
 CREATE TABLE IF NOT EXISTS points
@@ -89,26 +92,27 @@ INSERT INTO admins (email, password)
 VALUES ('admin@gmail.com', '123456789');
 
 INSERT INTO roles (name)
-VALUES ('Teacher'), -- id = 1
-       ('Student'); -- id = 2
+VALUES ('Teacher'), 
+       ('Student'); 
+INSERT INTO majors (name)
+VALUES ('Information technology'),
+       ('Du lịch'),
+       ('Marketing'),
+       ('Business'),
+       ('Information technology');
+       
+INSERT INTO users (role_id, name, gender, phone, major_id)
+VALUES (1, 'Trang', 0, '242342422',1),
+       (1, 'Tuan', 1, '08333333',1),
+       (1, 'Phong', 1, '035666666',2),
+       (1, 'Loan', 0, '043534554',3),
+       (2, 'Phuong', 0, '0324324234',3),
+       (2, 'PHUOC TRAN', 1, '3423423',4),
+       (2, 'Quang', 1, '234234444',4),
+       (2, 'Minh', 1, '756456456',4),
+       (2, 'Hieu', 1, '255552222',4),
+       (2, 'Trinh', 0, '234234234',5);
 
-INSERT INTO users (role_id, name, gender, phone)
-VALUES (1, 'Trang', 0, '242342422'),
-       (1, 'Tuan', 1, '08333333'),
-       (1, 'Phong', 1, '035666666'),
-       (1, 'Loan', 0, '043534554'),
-       (2, 'Phuong', 0, '0324324234'),
-       (2, 'PHUOC TRAN', 1, '3423423'),
-       (2, 'Quang', 1, '234234444'),
-       (2, 'Minh', 1, '756456456'),
-       (2, 'Hieu', 1, '255552222'),
-       (2, 'Trinh', 0, '234234234');
-
-INSERT INTO majors (name, user_id)
-VALUES ('Information technology', 1),
-       ('Du lịch', 2),
-       ('Marketing', 3),
-       ('Business', 4);
 
 INSERT INTO classrooms(name)
 VALUES ('lop A2'),
@@ -120,15 +124,25 @@ VALUES (1, 1, 1),
        (2, 2, 2),
        (3, 3, 3);
 
-INSERT INTO subjects(name, credit_number)
-VALUES ('Programing', 1),
-       ('Networking', 2),
-       ('Security', 3),
-       ('Project management', 5);
+INSERT INTO subjects(name, credit_number, major_id)
+VALUES ('Programing', 1,1),
+       ('Networking', 2,1),
+       ('Security', 3,4),
+       ('Project management', 5,3);
 
 INSERT INTO points(subject_id, user_id, point, time)
 VALUES (1, 5, 10, 1),
        (2, 6, 8, 2),
+       (3, 6, 9, 1),
        (3, 7, 9, 1),
-       (3, 8, 9, 1),
-       (4, 9, 10, 1);
+       (4, 9, 10, 1),
+       (1, 5, 10, 1),
+       (2, 5, 8, 2),
+       (3, 6, 6, 1),
+       (3, 7, 5, 1),
+       (4, 8, 4, 1),
+       (1, 9, 10, 1),
+        (2, 9, 8, 2),
+        (3, 6, 6, 1),
+        (3, 8, 5, 1),
+        (4, 8, 4, 1);

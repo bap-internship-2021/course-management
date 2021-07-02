@@ -1,7 +1,7 @@
 <?php
 
 require_once 'models/User.php'; // Call the Subject model
-
+require_once 'controllers/LoginController.php';
 class UserController extends User
 {
     public function home()
